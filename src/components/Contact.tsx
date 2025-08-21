@@ -46,7 +46,7 @@ const Contact = () => {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.name || !formData.email || !formData.message) {
@@ -58,13 +58,29 @@ const Contact = () => {
       return;
     }
 
-    // Simulate form submission
-    toast({
-      title: "Message sent! 🎉",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
+    try {
+      const form = e.target as HTMLFormElement;
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: new FormData(form)
+      });
 
-    setFormData({ name: "", email: "", message: "" });
+      if (response.ok) {
+        toast({
+          title: "Message sent! 🎉",
+          description: "Thank you for reaching out. I'll get back to you soon!",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -155,6 +171,12 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Web3Forms API Key */}
+                  <input type="hidden" name="access_key" value="2b9bd5cb-5772-40fc-93c7-f46a9eff1da1" />
+                  
+                  {/* Honeypot for spam protection */}
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+                  
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-foreground">
                       Your Name
