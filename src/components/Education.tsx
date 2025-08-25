@@ -58,17 +58,17 @@ const Education = () => {
     {
       title: "HTML & CSS Certification",
       issuer: "Organization/Platform",
-      link: "#"
+      link: "https://drive.google.com/file/d/17GfF8U8CdbYdUKL3HD9aBmTowM9KiKy5/view?usp=sharing"
     },
     {
       title: "Full Stack Certification", 
       issuer: "Organization/Platform",
-      link: "#"
+      link: "https://drive.google.com/file/d/1Inb6sNnRYUplst2nO73S2z2FYcp99454/view?usp=sharing"
     },
     {
       title: "IBM Data Science Certification",
       issuer: "IBM",
-      link: "#"
+      link: "https://drive.google.com/file/d/1iCBtpOgyvoTxO0fAEpylsOExZ3tB820a/view?usp=sharing"
     }
   ];
 
