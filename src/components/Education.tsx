@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { GraduationCap, Award, Calendar, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { GraduationCap, Award, Calendar, MapPin, ExternalLink } from "lucide-react";
 
 const Education = () => {
   const educationData = [
@@ -54,9 +55,21 @@ const Education = () => {
   ];
 
   const certifications = [
-    "Python Programming Certification",
-    "HTML & CSS Certification", 
-    "Subject-Specific Certifications"
+    {
+      title: "HTML & CSS Certification",
+      issuer: "Organization/Platform",
+      link: "#"
+    },
+    {
+      title: "Full Stack Certification", 
+      issuer: "Organization/Platform",
+      link: "#"
+    },
+    {
+      title: "IBM Data Science Certification",
+      issuer: "IBM",
+      link: "#"
+    }
   ];
 
   return (
@@ -166,23 +179,46 @@ const Education = () => {
           {/* Certifications */}
           <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <h3 className="text-2xl font-bold text-foreground mb-6">Certifications</h3>
-            <Card className="bg-gradient-card border-0 shadow-medium">
-              <CardContent className="p-6">
-                <div className="space-y-4">
-                  {certifications.map((cert, index) => (
-                    <div key={index} className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent/5 transition-colors">
-                      <div className="w-2 h-2 bg-accent rounded-full" />
-                      <span className="text-foreground font-medium">{cert}</span>
+            <div className="grid gap-4">
+              {certifications.map((cert, index) => (
+                <Card 
+                  key={index} 
+                  className="bg-gradient-card border-0 shadow-medium hover:shadow-elevated hover:scale-[1.02] transition-all duration-300 group cursor-pointer"
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-start gap-4 flex-1">
+                        <div className="p-3 rounded-lg bg-accent/10 text-accent group-hover:bg-accent/20 transition-colors">
+                          <GraduationCap className="w-6 h-6" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-bold text-foreground text-lg mb-1 group-hover:text-accent transition-colors">
+                            {cert.title}
+                          </h4>
+                          <p className="text-muted-foreground text-sm mb-4">
+                            Issued by: {cert.issuer}
+                          </p>
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={() => window.open(cert.link, '_blank')}
+                            className="group-hover:border-accent group-hover:text-accent transition-colors"
+                          >
+                            View Certificate
+                            <ExternalLink className="w-3 h-3 ml-2" />
+                          </Button>
+                        </div>
+                      </div>
                     </div>
-                  ))}
-                </div>
-                <div className="mt-6 pt-6 border-t border-border/50">
-                  <p className="text-sm text-muted-foreground text-center">
-                    Committed to continuous learning and professional development
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            <div className="mt-6 text-center">
+              <p className="text-sm text-muted-foreground">
+                Committed to continuous learning and professional development
+              </p>
+            </div>
           </div>
         </div>
       </div>
