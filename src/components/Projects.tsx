@@ -1,33 +1,43 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Database, Brain, ExternalLink, GitBranch } from "lucide-react";
+import { Calendar, Database, Brain, ExternalLink, Github, Play } from "lucide-react";
 
 const Projects = () => {
   const projects = [
     {
       title: "Broadcast Scheduling System",
-      description: "A comprehensive system for managing and scheduling broadcast content with real-time updates and conflict resolution.",
-      techStack: ["Python", "Streamlit", "SQL", "Pandas"],
+      techStack: ["Python", "Streamlit", "SQL"],
+      problem: "Manual scheduling of sports broadcasts often causes conflicts and inefficiency.",
+      solution: "Automated scheduling system that allocates slots based on priority, time, and availability.",
+      impact: "Reduced scheduling conflicts and improved efficiency in managing multiple broadcasts.",
       icon: Calendar,
       color: "bg-blue-500/10 text-blue-600",
-      features: ["Real-time scheduling", "Conflict detection", "User-friendly interface"]
+      demoLink: "#",
+      githubLink: "#"
     },
     {
-      title: "Smart To-Do List (ML-Powered)",
-      description: "An intelligent task management system that uses machine learning to prioritize tasks and predict completion times.",
+      title: "Intelligent To-Do List with Machine Learning",
       techStack: ["Python", "TensorFlow", "Scikit-Learn", "Flask"],
+      problem: "Traditional to-do lists don't prioritize tasks effectively.",
+      solution: "Smart task manager that predicts and ranks tasks using ML, with NLP-based classification of urgency and importance.",
+      impact: "Improved productivity by helping users focus on critical tasks first.",
       icon: Brain,
       color: "bg-purple-500/10 text-purple-600",
-      features: ["AI task prioritization", "Completion prediction", "Smart categorization"]
+      demoLink: "#",
+      githubLink: "#"
     },
     {
       title: "Face Recognition Attendance System",
-      description: "Automated attendance tracking system using computer vision and facial recognition technology for accurate student monitoring.",
-      techStack: ["Python", "OpenCV", "MySQL", "Face Recognition"],
+      techStack: ["Python", "OpenCV", "MySQL"],
+      problem: "Manual attendance tracking is time-consuming and error-prone.",
+      solution: "AI-powered attendance system with real-time face recognition integrated with MySQL.",
+      impact: "Reduced attendance tracking time from ~10 minutes to under 30 seconds per class.",
+      futureScope: "Add anti-spoofing detection and automated report generation.",
       icon: Database,
       color: "bg-green-500/10 text-green-600",
-      features: ["Real-time recognition", "Database integration", "Attendance analytics"]
+      demoLink: "#",
+      githubLink: "#"
     }
   ];
 
@@ -43,11 +53,11 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="group card-hover bg-gradient-card border-0 shadow-medium animate-scale-in overflow-hidden"
+              className="group card-hover bg-gradient-card border-0 shadow-medium hover:shadow-elevated hover:-translate-y-2 transition-all duration-300 animate-scale-in overflow-hidden"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <CardHeader className="pb-4">
@@ -55,56 +65,91 @@ const Projects = () => {
                   <div className={`p-3 rounded-lg ${project.color} group-hover:shadow-glow transition-all duration-300`}>
                     <project.icon className="w-6 h-6" />
                   </div>
-                  <Button variant="ghost" size="icon" className="opacity-0 group-hover:opacity-100 transition-opacity">
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
                 </div>
-                <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
+                <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors mb-2">
                   {project.title}
                 </h3>
+                
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.techStack.map((tech, techIndex) => (
+                    <Badge 
+                      key={techIndex} 
+                      variant="secondary" 
+                      className="text-xs hover:bg-accent/20 transition-colors"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
               </CardHeader>
               
-              <CardContent className="space-y-6">
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Features */}
-                <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-foreground">Key Features:</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {project.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+              <CardContent className="space-y-4 pt-0">
+                {/* Problem */}
+                <div>
+                  <h4 className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-red-500 rounded-full" />
+                    Problem
+                  </h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {project.problem}
+                  </p>
                 </div>
 
-                {/* Tech Stack */}
-                <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-foreground">Tech Stack:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, techIndex) => (
-                      <Badge 
-                        key={techIndex} 
-                        variant="secondary" 
-                        className="text-xs hover:bg-accent/20 transition-colors"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
+                {/* Solution */}
+                <div>
+                  <h4 className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                    Solution
+                  </h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {project.solution}
+                  </p>
+                </div>
+
+                {/* Impact */}
+                <div>
+                  <h4 className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full" />
+                    Impact
+                  </h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {project.impact}
+                  </p>
+                </div>
+
+                {/* Future Scope (if exists) */}
+                {project.futureScope && (
+                  <div>
+                    <h4 className="text-sm font-bold text-foreground mb-2 flex items-center gap-2">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full" />
+                      Future Scope
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {project.futureScope}
+                    </p>
                   </div>
-                </div>
+                )}
 
-                <div className="pt-4 border-t border-border/50">
+                {/* Action Buttons */}
+                <div className="pt-4 border-t border-border/50 space-y-3">
+                  <Button 
+                    variant="primary" 
+                    size="sm"
+                    className="w-full"
+                    onClick={() => window.open(project.demoLink, '_blank')}
+                  >
+                    <Play className="w-4 h-4 mr-2" />
+                    View Demo
+                  </Button>
                   <Button 
                     variant="outline" 
+                    size="sm"
                     className="w-full group-hover:border-accent group-hover:text-accent transition-colors"
+                    onClick={() => window.open(project.githubLink, '_blank')}
                   >
-                    <GitBranch className="w-4 h-4 mr-2" />
-                    Learn More
+                    <Github className="w-4 h-4 mr-2" />
+                    View Code
                   </Button>
                 </div>
               </CardContent>
@@ -117,7 +162,7 @@ const Projects = () => {
             Want to see more of my work?
           </p>
           <Button variant="primary">
-            <GitBranch className="w-4 h-4 mr-2" />
+            <Github className="w-4 h-4 mr-2" />
             View All Projects on GitHub
           </Button>
         </div>
