@@ -27,9 +27,7 @@ const Experience = () => {
               </h3>
               
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                I'm actively looking for internships and entry-level positions where I can apply my academic 
-                knowledge and project experience in real-world environments. Ready to contribute to innovative 
-                teams and grow professionally.
+                Currently seeking internships and opportunities to apply academic knowledge and project experience in real-world environments. Ready to contribute to innovative teams and grow professionally.
               </p>
 
               <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -71,7 +69,11 @@ const Experience = () => {
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </a>
                 </Button>
-                <Button variant="secondary" size="lg">
+                <Button 
+                  variant="secondary" 
+                  size="lg"
+                  onClick={() => window.open('https://drive.google.com/file/d/1qeu0VhS1XsSPB4OSB0c_dwdGk3nrkV_j/view?usp=sharing', '_blank')}
+                >
                   Download My Resume
                 </Button>
               </div>

@@ -42,15 +42,15 @@ const About = () => {
           <div className="animate-slide-up">
             <div className="space-y-6">
               <p className="text-lg leading-relaxed text-foreground">
-                I am a Bachelor of Engineering student in <span className="font-semibold text-accent">Artificial Intelligence & Machine Learning</span> at BITM, Ballari, graduating in 2026.
+                I am a Bachelor of Engineering student in <span className="font-semibold text-accent">Artificial Intelligence & Machine Learning</span> at BITM, Ballari (graduating in 2026).
               </p>
               
               <p className="text-lg leading-relaxed text-foreground">
-                I'm passionate about <span className="font-semibold text-accent">solving complex problems through technology</span>, with strong skills in Python, Data Structures & Algorithms, and AI/ML.
+                I'm passionate about <span className="font-semibold text-accent">solving problems with Python, Data Structures & Algorithms, and AI/ML</span>. I enjoy building impactful projects, participating in hackathons, and collaborating on innovative ideas.
               </p>
               
               <p className="text-lg leading-relaxed text-foreground">
-                I thrive on building innovative projects, collaborating in teams, and creating impactful solutions that make a difference in the world.
+                I thrive on creating solutions that make a difference and am always eager to learn new technologies and tackle challenging problems.
               </p>
 
               <div className="pt-4">
