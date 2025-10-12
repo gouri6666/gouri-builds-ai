@@ -72,7 +72,7 @@ const Experience = () => {
                 <Button 
                   variant="secondary" 
                   size="lg"
-                  onClick={() => window.open('https://drive.google.com/file/d/1qeu0VhS1XsSPB4OSB0c_dwdGk3nrkV_j/view?usp=sharing', '_blank')}
+                  onClick={() => window.open('https://drive.google.com/file/d/1lJezKZEqkYQGYsRa0AXagF2BTyDLIS51/view?usp=sharing', '_blank')}
                 >
                   Download My Resume
                 </Button>
