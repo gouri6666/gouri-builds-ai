@@ -37,7 +37,7 @@ const Projects = () => {
       icon: Database,
       color: "bg-green-500/10 text-green-600",
       demoLink: "#",
-      githubLink: "#"
+      githubLink: "https://github.com/gouri6666/attendance-face-recognition"
     }
   ];
 
