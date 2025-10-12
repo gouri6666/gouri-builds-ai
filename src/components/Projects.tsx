@@ -161,7 +161,10 @@ const Projects = () => {
           <p className="text-muted-foreground mb-6">
             Want to see more of my work?
           </p>
-          <Button variant="primary">
+          <Button 
+            variant="primary"
+            onClick={() => window.open('https://github.com/gouri6666', '_blank')}
+          >
             <Github className="w-4 h-4 mr-2" />
             View All Projects on GitHub
           </Button>
